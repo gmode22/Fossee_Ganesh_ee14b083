@@ -22,17 +22,19 @@ function [b,a,bp] = ca2tf(d1,d2,varargin)
         return;
     else
         if(argn(2)==3) then
-            beta_=varargin(1);
+            bet=varargin(1);
+            //disp(varargin(1));
             // checking weather  beta_ is complex or not
-            if((beta_-beta_')==0) then//imaginary part checking
-                
+            if(abs(bet-bet')>0) then//imaginary part checking
                 // numerator of all pass filter is    "flip(d1')"
-                n1=flipdim(d1',2);
-                n2=flipdim(d2',2);
+                n1=d1';
+                n2=d2';
+                n1=flipdim(n1,2);
+                n2=flipdim(n2,2);
                 // multiplication of two polynomials using "conv" function
-                b=-beta_'*conv(n1,d2)+beta_*conv(n2,d1);
-                a=2*conv(d1,d2);
-                bp=(-beta_'*conv(n1,d2)+beta_*conv(n2,d1))/(2*%i);
+                b=(-bet'*conv(n1,d2)+bet*conv(n2,d1))/2;
+                a=conv(d1,d2);
+                bp=(-bet'*conv(n1,d2)+bet*conv(n2,d1))*(-%i*0.5);
                 return;
             else
                 disp("Beta should be complex");
@@ -41,11 +43,15 @@ function [b,a,bp] = ca2tf(d1,d2,varargin)
             //For Real value of beta_ do this
         else
             // numerator of all pass filter is    "flip(d1')"
-            n1=flipdim(d1',2);
-            n2=flipdim(d2',2);
-            b=conv(n1,d2)+conv(n2,d1);
-            a=2*conv(d1,d2);
+            n1=d1';
+            n2=d2';
+            n1=flipdim(n1,2);
+            n2=flipdim(n2,2);
+            b=(conv(n1,d2)+conv(n2,d1))/2;
+            a=conv(d1,d2);
+            //disp(a,b);
             bp=(conv(n1,d2)-conv(n2,d1))/2;
             return;
+        end
     end
 endfunction

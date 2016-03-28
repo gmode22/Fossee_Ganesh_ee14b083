@@ -66,4 +66,7 @@ So if above condition is true then flag=1.
 
 2.bp and r the radius of poles is related by equation r=0.999-0.7*bp; This relation is got by plotting "r v/s bp" and then fitting it.
 
-3. Also the bp and Ymax are related by equation Ymax=(1+0.8287314*bp); So to compensate magnitude back to Ymax=1;
+3.Also the bp and Ymax are related by equation Ymax=(1+0.8287314*bp); So to compensate magnitude back to Ymax=1;
+
+4.equation of notch filter H(z)=[(1-exp(j.(w0-w))).(1-exp(j.(2.pi-w0-w)))] ./ [(1-r.r.exp(j.(w0-w))).(1-r.r.exp(j.(2.pi-w0-w)))];
+

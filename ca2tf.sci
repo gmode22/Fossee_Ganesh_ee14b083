@@ -29,8 +29,8 @@ function [b,a,bp] = ca2tf(d1,d2,varargin)
                 // numerator of all pass filter is    "flip(d1')"
                 n1=d1';
                 n2=d2';
-                n1=flipdim(n1,2);
-                n2=flipdim(n2,2);
+                n1=flipdim(n1.',2);
+                n2=flipdim(n2.',2);
                 // multiplication of two polynomials using "conv" function
                 b=(-bet'*conv(n1,d2)+bet*conv(n2,d1))/2;
                 a=conv(d1,d2);
@@ -43,10 +43,8 @@ function [b,a,bp] = ca2tf(d1,d2,varargin)
             //For Real value of beta_ do this
         else
             // numerator of all pass filter is    "flip(d1')"
-            n1=d1';
-            n2=d2';
-            n1=flipdim(n1,2);
-            n2=flipdim(n2,2);
+            n1=flipdim(d1,2);
+            n2=flipdim(d2,2);
             b=(conv(n1,d2)+conv(n2,d1))/2;
             a=conv(d1,d2);
             //disp(a,b);

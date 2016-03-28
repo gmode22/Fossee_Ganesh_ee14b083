@@ -2,7 +2,6 @@
 
 Name: Ganesh Mode
 
-
 Roll no. : EE14B083 
 
 

@@ -1,6 +1,3 @@
-//Name: Ganesh Mode
-//Roll no.: ee14b083
-// IIT Madras
 //      Input arguments : 1.w0=frequency that you want to notch
 //                          variation of w0 is -pi to pi
 //                        2.bp= is related to quality factor i.e it will decide the sharpness of curve

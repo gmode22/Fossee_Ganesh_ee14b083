@@ -31,9 +31,6 @@ function [n,d]=notch(w0,bp)
     d=d*(1+0.8287314*bp);
     
     
-    //I you want to plot the filter remove below comments
-    //y=abs(y)/(1+0.8287314*bp);
-    //plot(w,log(y));
     return;
 endfunction
 

@@ -1,3 +1,6 @@
+//Name: Ganesh Mode
+//Roll no.: ee14b083
+// IIT Madras
 //      Input arguments : 1.w0=frequency that you want to notch
 //                          variation of w0 is -pi to pi
 //                        2.bp= is related to quality factor i.e it will decide the sharpness of curve
@@ -8,11 +11,9 @@
 //
 // Using  Numerator and denominator you can plot filter
 //
-// resource: 1. 'http://in.mathworks.com/help/dsp/ref/iirnotch.html'
-//           2. Digital signal processing course In IIT Madras EE2004
 //
 
-function [n,d]=notch(w0,bp)
+function [n,d]=iirnotch(w0,bp)
     
     //relationship betwin 'r' v/s 'bp'
     //this is found by plotting r vs bp for w0=0;
